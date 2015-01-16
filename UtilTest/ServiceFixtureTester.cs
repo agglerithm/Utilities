@@ -1,22 +1,31 @@
-using System;
+using System; 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSubstitute;
-using Utilities;
+using Utilities.WinServices;
 
 namespace UtilTest
 {
     [TestClass]
     public class ServiceFixtureTester
     {
-        private ServiceFixture _fixture = new ServiceFixture();
+        private ServiceBootstrapper sut;
+       
         private bool _started = false;
         private bool _stopped;
 
+        [TestInitialize]
+        public void setup()
+        {
+            sut = new ServiceBootstrapper(new TestHelper(new string[] { "/c" }, false))
+            {
+                ServiceName = "MyTestService",
+                ServiceDescription = "A Test Service"
+            };
+        }
         [TestMethod]
         public void can_run_service_in_console()
         {
-            _fixture.Register(start,stop);
-            _fixture.Run();
+            sut.Register(start,stop,Console.WriteLine);
+            sut.Run();
 
             Assert.IsTrue(_started);
             Assert.IsFalse(_stopped);
@@ -35,5 +44,20 @@ namespace UtilTest
         }
     }
 
+    internal class TestHelper : IServiceHelper
+    {
+        public TestHelper(string[] args, bool isRunningAsSvc)
+        {
+            CommandLineArguments = args;
+            IsRunningAsService = isRunningAsSvc;
+        }
+        public bool IsRunningAsService { get; private set; }
+        public string[] CommandLineArguments { get; private set; }
+        public bool UserIsAdministrator { get; private set; }
 
+        public bool IsInstalled(string serviceName)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
