@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0FF65CBA-17A4-4EEA-8CA2-D55410937A90}</ProjectGuid>
+    <ProjectGuid>{C4D9D4DE-982E-45F7-9953-8652E78B65EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Utilities</RootNamespace>
-    <AssemblyName>Utilities</AssemblyName>
+    <RootNamespace>Utilities.WinMockups</RootNamespace>
+    <AssemblyName>Utilities.WinMockups</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,11 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,31 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\CommonExtensions.cs" />
-    <Compile Include="WinServices\IServiceHelper.cs" />
-    <Compile Include="WinServices\ServiceSettings.cs" />
-    <Compile Include="WinServices\ParentInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="IO\PmFileInfo.cs" />
-    <Compile Include="Test\TestExtensions.cs" />
-    <Compile Include="IO\FileRecordBase.cs" />
-    <Compile Include="IProcessCollection.cs" />
-    <Compile Include="WinServices\IServiceBootstrapper.cs" />
-    <Compile Include="IO\FileProcessorMT.cs" />
-    <Compile Include="Extensions\ProcessEx.cs" />
+    <Compile Include="CompModSwitches.cs" />
+    <Compile Include="InstallContext.cs" />
+    <Compile Include="Installer.cs" />
+    <Compile Include="InstallerCollection.cs" />
+    <Compile Include="InstallerParentConverter.cs" />
+    <Compile Include="InstallEventArgs.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IO\RecordBlock.cs" />
-    <Compile Include="IO\RecordBlockSpecs.cs" />
-    <Compile Include="Test\TestTimer.cs" />
-    <Compile Include="WinServices\ServiceBootstrapper.cs" />
-    <Compile Include="WinServices\WinServiceInstaller.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilities.ServiceBase\Utilities.WinMockups.csproj">
-      <Project>{c4d9d4de-982e-45f7-9953-8652e78b65ea}</Project>
-      <Name>Utilities.WinMockups</Name>
-    </ProjectReference>
+    <Compile Include="ServiceBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,5 @@
 using System;
-using Utilities;
+using Utilities.IO;
 
 namespace UtilTest
 {
@@ -7,24 +7,36 @@ namespace UtilTest
     {
         public string description { get; set; }
         public int id { get; set; }
-        public DateTime createDate { get; set; }
-
+        public string createDate { get; set; }
+        private static int cnt;
         public string getRecord()
         {
-            return string.Format("{0}, {1}, {2}", "                                ", id.ToString().PadRight(4, '0'), createDate.ToString("yyyy-M-d dddd"));
+            id = cnt++;
+            return string.Format("{0}, {1}, {2}", "                                ", id.ToString().PadLeft(7, '0'), DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff"));
         }
 
         public FileRecord()
         {
             Delimiter = "\r\n";
-            RecordSize = 57;
+            RecordSize = 66; 
         }
+
         public override void Parse(string line)
         {
             var arr = line.Split(',');
-            description = arr[0];
-            id = int.Parse (arr[1]);
-            createDate = DateTime.Parse(arr[2]);
+            if (arr.Length < 3) 
+                return;
+            try
+            {
+                description = arr[0];
+                id = int.Parse (arr[1]);
+                createDate = arr[2]; 
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }
