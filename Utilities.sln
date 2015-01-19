@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilTest", "UtilTest\UtilTest.csproj", "{CCE5DC1B-0423-46D4-B139-8E0108F6DF79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities.WinMockups", "Utilities.ServiceBase\Utilities.WinMockups.csproj", "{C4D9D4DE-982E-45F7-9953-8652E78B65EA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.CommonTemplate", "NuGet.CommonTemplate\NuGet.CommonTemplate.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,14 +21,6 @@ Global
 		{CCE5DC1B-0423-46D4-B139-8E0108F6DF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE5DC1B-0423-46D4-B139-8E0108F6DF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE5DC1B-0423-46D4-B139-8E0108F6DF79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4D9D4DE-982E-45F7-9953-8652E78B65EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4D9D4DE-982E-45F7-9953-8652E78B65EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4D9D4DE-982E-45F7-9953-8652E78B65EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4D9D4DE-982E-45F7-9953-8652E78B65EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

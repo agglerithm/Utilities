@@ -11,11 +11,6 @@ namespace Utilities.Extensions
             return Encoding.UTF8.GetString(buff.SkipWhile(c => c == 0).ToArray());
         }
 
-        public static string SafeTrim(this string str)
-        {
-            if (str == null) return null;
-            return str.Trim();
-        }
         public static bool IsNullOrEmpty(this string str)
         {
             return string.IsNullOrEmpty(str);
