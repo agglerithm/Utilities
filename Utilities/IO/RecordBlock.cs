@@ -6,7 +6,7 @@ using Utilities.Extensions;
 
 namespace Utilities.IO
 {
-    public class RecordBlock<T> where T:FileRecordBase, new()
+    public class RecordBlock<T> : IRecordBlock<T> where T:FileRecordBase, new()
     { 
         private readonly int _blockIndex;
         private readonly byte[] _buff;
@@ -43,7 +43,12 @@ namespace Utilities.IO
 
         public int BlockSize
         {
-            get { return RecordSize * _recordCount; }
+            get { return GetBlockSize(); }
+        }
+
+        private int GetBlockSize()
+        {
+            return RecordSize*_recordCount;
         }
 
         public int RecordSize { get { return _specs.GrossRecordSize; } }

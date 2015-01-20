@@ -46,11 +46,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="content\Extensions\CommonExtensions.cs" />
-    <Compile Include="content\Extensions\ProcessEx.cs" />
-    <Compile Include="content\ProcUtils\IProcessCollection.cs" />
-    <Compile Include="content\TestUtils\TestExtensions.cs" />
-    <Compile Include="content\TestUtils\TestTimer.cs" />
+    <None Include="content\Extensions\CommonExtensions.cs.pp" />
+    <None Include="content\Extensions\ProcessEx.cs.pp" />
+    <None Include="content\ProcUtils\IProcessCollection.cs.pp" />
+    <None Include="content\TestUtils\TestExtensions.cs.pp" />
+    <None Include="content\TestUtils\TestTimer.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

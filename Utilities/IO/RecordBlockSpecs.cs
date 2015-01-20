@@ -1,7 +1,6 @@
-using Utilities.IO;
-
-namespace Utilities
+namespace Utilities.IO
 {
+    public enum FileType { Delimited, FixedRecordSize, Xml}
     public class RecordBlockSpecs<T> where T:FileRecordBase, new()
     {
         private readonly T _recSpecs;

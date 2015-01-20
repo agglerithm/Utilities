@@ -22,7 +22,7 @@ namespace Utilities.IO
  
         private class WorkObject
         {
-            internal WorkObject(RecordBlock<T> block, Func<Stream> readStreamInitializer, 
+            internal WorkObject(IRecordBlock<T> block, Func<Stream> readStreamInitializer, 
                 Func<byte[],Stream> writeStreamInitializer, Action<T> procAction)
             {
                 Block = block;
@@ -37,8 +37,8 @@ namespace Utilities.IO
              
 
             public Action<T> ProcAction { get; private set; }
-             
-            public RecordBlock<T> Block { get; private set; }
+
+            public IRecordBlock<T> Block { get; private set; }
              
         }
 

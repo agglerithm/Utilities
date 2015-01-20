@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,6 +25,20 @@ namespace Utilities.Extensions
         public static string[] Split(this string str, string delim)
         {
             return Regex.Split(str, delim);
+        }
+        public static int CastToInt(this string str)
+        {
+            return int.Parse(str);
+        }
+
+        public static decimal CastToDecimal(this string str)
+        {
+            return decimal.Parse(str);
+        }
+
+        public static DateTime CastToDateTime(this string str)
+        {
+            return DateTime.Parse(str);
         }
     }
 }
