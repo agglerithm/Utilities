@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+
 namespace Utilities.IO
 {
     public interface IRecordBlock<T>
@@ -7,8 +9,9 @@ namespace Utilities.IO
         int ActualRecordCount { get; }
         int BlockSize { get; }
         int Offset { get; }
-        T[] Read(Func<System.IO.Stream> read);
-        System.IO.Stream Read(Func<System.IO.Stream> read, Action<T> process); 
-        System.IO.Stream Write(Func<byte[], System.IO.Stream> write);
+        T[] Read(Func<Stream> read);
+        Stream Read(Func<Stream> read, Action<T> process); 
+        Stream Write(Func<byte[], Stream> write);
+        void StreamlessWrite(Stream readStream, Action<Stream, int, int> write);
     }
 }

@@ -44,8 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CommonExtensions.cs" />
+    <Compile Include="IO\AdHocRecord.cs" />
+    <Compile Include="IO\AdHocRecordBlockSpecs.cs" />
     <Compile Include="IO\IParseFiles.cs" />
     <Compile Include="IO\IRecordBlock.cs" />
+    <Compile Include="IO\RawTextResults.cs" />
+    <Compile Include="IO\SFTPConfig.cs" />
+    <Compile Include="IO\StreamUtilities.cs" />
+    <Compile Include="IO\StringComparisonQueue.cs" />
+    <Compile Include="IO\StructuredRecordBlock.cs" />
     <Compile Include="WinServices\IServiceHelper.cs" />
     <Compile Include="WinServices\ServiceSettings.cs" />
     <Compile Include="WinServices\ParentInstaller.cs">
@@ -56,7 +63,7 @@
     <Compile Include="IO\FileRecordBase.cs" />
     <Compile Include="IProcessCollection.cs" />
     <Compile Include="WinServices\IServiceBootstrapper.cs" />
-    <Compile Include="IO\FileProcessorMT.cs" />
+    <Compile Include="IO\MultiThreadFileProc.cs" />
     <Compile Include="Extensions\ProcessEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IO\RecordBlock.cs" />

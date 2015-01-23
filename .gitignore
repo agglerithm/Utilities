@@ -2,6 +2,7 @@
 bin
 obj
 packages
+testdata
 
 # mstest test results
 TestResults

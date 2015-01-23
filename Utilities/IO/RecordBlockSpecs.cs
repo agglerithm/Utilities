@@ -1,7 +1,20 @@
 namespace Utilities.IO
 {
     public enum FileType { Delimited, FixedRecordSize, Xml}
-    public class RecordBlockSpecs<T> where T:FileRecordBase, new()
+
+    public interface IRecordBlockSpecs
+    {
+        int RecordSize { get; }
+        int GrossRecordSize { get; }
+        int RecordCount { get;  }
+        string Delimiter { get; }
+        int DelimiterLength { get; }
+        int BlockSize { get; }
+        FileRecordBase GetFileRecordSpecs();
+        int GetBlockCount(long fileSize);
+    }
+
+    public class RecordBlockSpecs<T> : IRecordBlockSpecs where T:FileRecordBase, new()
     {
         private readonly T _recSpecs;
 
@@ -29,7 +42,12 @@ namespace Utilities.IO
         {
             return _recSpecs;
         }
-
+        public int GetBlockCount(long fileSize)
+        {
+            var blockCount = (int)(fileSize / BlockSize);
+            if (fileSize % BlockSize > 0) blockCount++;
+            return blockCount;
+        }
 
     }
 }

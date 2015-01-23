@@ -10,10 +10,10 @@ namespace Utilities.IO
     { 
         private readonly int _blockIndex;
         private readonly byte[] _buff;
-        private readonly RecordBlockSpecs<T> _specs;
-        private int _recordCount; 
+        private readonly IRecordBlockSpecs _specs;
+        private int _recordCount;
 
-        public RecordBlock(RecordBlockSpecs<T> specs, int blockIndex)
+        public RecordBlock(IRecordBlockSpecs specs, int blockIndex)
         { 
             _blockIndex = blockIndex;
             _specs = specs;
@@ -41,6 +41,12 @@ namespace Utilities.IO
             return strm;
         }
 
+
+        public void StreamlessWrite(Stream readStream, Action<Stream, int, int> write)
+        {
+            write(readStream,Offset, BlockSize);
+        }
+
         public int BlockSize
         {
             get { return GetBlockSize(); }
@@ -55,7 +61,7 @@ namespace Utilities.IO
 
         public int ActualRecordCount { get { return _recordCount;  } }
 
-        public int Offset { get { return _blockIndex*RecordSize*_specs.RecordCount; } }
+        public virtual int Offset { get { return _blockIndex*RecordSize*_specs.RecordCount; } }
 
         public Stream Read(Func<Stream> read, Action<T> process)
         {

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -39,6 +40,16 @@ namespace Utilities.Extensions
         public static DateTime CastToDateTime(this string str)
         {
             return DateTime.Parse(str);
+        }
+
+        public static bool EOF(this Stream strm)
+        {
+            return strm.ReachedLimit(strm.Length);
+        }
+
+        public static bool ReachedLimit(this Stream strm, long limit)
+        {
+            return strm.Position == limit;
         }
     }
 }

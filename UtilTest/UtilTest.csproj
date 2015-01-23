@@ -38,18 +38,6 @@
     <Reference Include="NSubstitute">
       <HintPath>..\packages\NSubstitute.1.6.0.0\lib\NET40\NSubstitute.dll</HintPath>
     </Reference>
-    <Reference Include="Rebex.Common">
-      <HintPath>..\..\..\..\..\..\jreese\Documents\Visual Studio 2013\Projects\XiTransfer\Externals\Rebex\Rebex.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Rebex.Ftp">
-      <HintPath>..\..\..\..\..\..\jreese\Documents\Visual Studio 2013\Projects\XiTransfer\Externals\Rebex\Rebex.Ftp.dll</HintPath>
-    </Reference>
-    <Reference Include="Rebex.Networking">
-      <HintPath>..\..\..\..\..\..\jreese\Documents\Visual Studio 2013\Projects\XiTransfer\Externals\Rebex\Rebex.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="Rebex.Sftp">
-      <HintPath>..\..\..\..\..\..\jreese\Documents\Visual Studio 2013\Projects\XiTransfer\Externals\Rebex\Rebex.Sftp.dll</HintPath>
-    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -76,24 +64,26 @@
   </Choose>
   <ItemGroup>
     <Compile Include="FileRecord.cs" />
+    <Compile Include="IoUtilitiesTester.cs" />
     <Compile Include="JumboFileTester.cs" />
     <Compile Include="ProcCollectionTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordBlockTester.cs" />
     <Compile Include="ServiceFixtureTester.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilities.ServiceBase\Utilities.WinMockups.csproj">
-      <Project>{C4D9D4DE-982E-45F7-9953-8652E78B65EA}</Project>
-      <Name>Utilities.WinMockups</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{0FF65CBA-17A4-4EEA-8CA2-D55410937A90}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
+    <Compile Include="StringComparisonQueueTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities.ServiceBase\Utilities.WinMockups.csproj">
+      <Project>{c4d9d4de-982e-45f7-9953-8652e78b65ea}</Project>
+      <Name>Utilities.WinMockups</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{0ff65cba-17a4-4eea-8ca2-d55410937a90}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

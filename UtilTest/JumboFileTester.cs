@@ -11,7 +11,7 @@ namespace UtilTest
     [TestClass]
     public class JumboFileTester
     {
-        private FileProcessorMt<FileRecord> _fileProc;
+        private MultiThreadFileProc<FileRecord> _fileProc;
         private List<FileRecord> _recList = new List<FileRecord>();
         private object _listLocker = new object();
         private long _fileSize;
@@ -38,7 +38,7 @@ namespace UtilTest
         public void can_read_multithread_file()
         {
             _recList.Clear();
-            _fileProc = new FileProcessorMt<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(),250000));
+            _fileProc = new MultiThreadFileProc<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(),250000));
             using (TestTimer.Start("Finished reading large file (multi-threaded)!"))
             {
                 _fileProc.ReadAndProcess(readProc, proc,_fileSize);
@@ -54,7 +54,7 @@ namespace UtilTest
             _recList.Clear();
             using (TestTimer.Start("Finished reading large file (max-threads)!"))
             {
-                _fileProc = new FileProcessorMt<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 100000));
+                _fileProc = new MultiThreadFileProc<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 100000));
                 _fileProc.ReadAndProcess(readProc, proc, _fileSize, 4);
                 //var lastRec = _recList.Last();
                 _recList.Count.ShouldEqual(1000000);
@@ -67,7 +67,7 @@ namespace UtilTest
             _recList.Clear();
             using (TestTimer.Start("Finished reading large file (single-threaded)!"))
             { 
-                _fileProc = new FileProcessorMt<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 1000000));
+                _fileProc = new MultiThreadFileProc<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 1000000));
                 _fileProc.SingleThreadReadAndProcess(readProc, proc, _fileSize); 
             }
         }
@@ -78,7 +78,7 @@ namespace UtilTest
             _recList.Clear();
             using (TestTimer.Start("Finished copying large file (single-threaded)!"))
             {
-                _fileProc = new FileProcessorMt<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 1000000));
+                _fileProc = new MultiThreadFileProc<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 1000000));
                 _fileProc.SingleThreadCopy(readProc, writeProc, _fileSize); 
             }
         }
@@ -88,7 +88,7 @@ namespace UtilTest
         { 
             using (TestTimer.Start("Finished copying large file (multi-threaded)!"))
             {
-                _fileProc = new FileProcessorMt<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 250000));
+                _fileProc = new MultiThreadFileProc<FileRecord>(new RecordBlockSpecs<FileRecord>(new FileRecord(), 250000));
                 _fileProc.Copy(readProc, writeProc, _fileSize);
             }
 

@@ -5,17 +5,17 @@ using System.Threading;
 
 namespace Utilities.IO
 {
-    public class FileProcessorMt<T> where T: FileRecordBase, new()
+    public class MultiThreadFileProc<T> where T: FileRecordBase, new()
     { 
-        private RecordBlockSpecs<T> _specs; 
+        private IRecordBlockSpecs _specs; 
         private int _blockCount;
         private long _fileSize;
         private int _blocksRead;
-        private object _counterLocker = new object();
+        private readonly object _counterLocker = new object();
         private readonly ManualResetEvent _doneEvent = new ManualResetEvent(false);
         private int _maxThreads;
-         
-        public FileProcessorMt(RecordBlockSpecs<T> specs)
+
+        public MultiThreadFileProc(IRecordBlockSpecs specs)
         { 
             _specs = specs;
         }
@@ -31,6 +31,8 @@ namespace Utilities.IO
                 InitializeRead = readStreamInitializer;
             }
 
+
+
             public Func<Stream> InitializeRead { get; private set; }
 
             public Func<byte[], Stream> InitializeWrite { get; private set; }
@@ -39,7 +41,19 @@ namespace Utilities.IO
             public Action<T> ProcAction { get; private set; }
 
             public IRecordBlock<T> Block { get; private set; }
-             
+        }
+
+        private class StreamlessWorkObject
+        {             public StreamlessWorkObject(RecordBlock<T> block, Func<Stream> readStreamInitializer, 
+            Action<Stream, int, int> writeAction)
+            {
+                Block = block; 
+                WriteAction = writeAction;
+                InitializeRead = readStreamInitializer;
+            }
+            public Func<Stream> InitializeRead { get; private set; }
+            public IRecordBlock<T> Block { get; private set; }
+            public Action<Stream, int, int> WriteAction { get; private set; }
         }
 
         public void Copy(Func<Stream> readStreamInitializer, Func<byte[], Stream> writeStreamInitializer, long fileSize)
@@ -51,6 +65,36 @@ namespace Utilities.IO
                     writeStreamInitializer, null));
             }
             _doneEvent.WaitOne(); 
+        }
+
+        public void Copy(Func<Stream> readStreamInitializer, Action<Stream,  int, int> writeAction, long fileSize)
+        {
+            var blocks = analyzeFile(fileSize);
+            foreach (var block in blocks)
+            {
+                ThreadPool.QueueUserWorkItem(workStreamlessWrite, new StreamlessWorkObject(block, readStreamInitializer,
+                    writeAction));
+            }
+            _doneEvent.WaitOne();
+        }
+
+        private void workStreamlessWrite(object state)
+        {
+            var obj = (StreamlessWorkObject)state;
+            var block = obj.Block; 
+            var write = obj.WriteAction;
+            var read = obj.InitializeRead;
+            var strm = block.Read(read, null);
+            if (write != null)
+            {
+                block.StreamlessWrite(strm, write); 
+            }
+            strm.Close();
+            lock (_counterLocker)
+            {
+                if (++_blocksRead == _blockCount)
+                    _doneEvent.Set();
+            }
         }
 
         public void ReadAndProcess(Func<Stream> readStreamInitializer, Action<T> proc, long fileSize)
@@ -100,13 +144,14 @@ namespace Utilities.IO
         private RecordBlock<T>[] analyzeFile(long fileSize)
         {  
             _fileSize = fileSize;
-            _blockCount = (int) (_fileSize/_specs.BlockSize);
-            if (_fileSize%_specs.BlockSize > 0) _blockCount++;
+            _blockCount = _specs.GetBlockCount(_fileSize);
             var lst = new List<RecordBlock<T>>();
             for(int i = 0; i < _blockCount; i++)
                 lst.Add(new RecordBlock<T>(_specs, i));
             return lst.ToArray();
         }
+
+
 
         [Obsolete("For test only!")]
         public void SingleThreadCopy(Func<Stream> readProc, Func<byte[], Stream> writeProc, long fileSize)

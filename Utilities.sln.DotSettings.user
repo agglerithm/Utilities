@@ -1,4 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\pmxipaytest\Documents\Visual Studio 2013\Projects\XiTransfer\Externals\Rebex\Rebex.Sftp.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=1C0318DB375247A7835F3EDAB35D9A23/@KeyIndexDefined">True</s:Boolean>
 	
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=1C0318DB375247A7835F3EDAB35D9A23/Name/@EntryValue">can_create_jumbo_file</s:String>
@@ -6,6 +9,26 @@
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4392E29F8EC14F81A4AFB865CB9CB74B/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4392E29F8EC14F81A4AFB865CB9CB74B/Name/@EntryValue">JumboFileTester</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4392E29F8EC14F81A4AFB865CB9CB74B/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=57B24F63F0D04118929EE49F139FEFC2/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=57B24F63F0D04118929EE49F139FEFC2/GroupingIndex/@EntryValue">4</s:Int64>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=57B24F63F0D04118929EE49F139FEFC2/Name/@EntryValue">CanReadSegmentOfXmlFile</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=57B24F63F0D04118929EE49F139FEFC2/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="UtilTest.IoUtilitiesTester.CanReadSegmentOfXmlFile" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -13,6 +36,10 @@
 	
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=8D2567DC75114240A8D34B3B7135EEF4/Name/@EntryValue">can_enumerate_processes</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=8D2567DC75114240A8D34B3B7135EEF4/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:UtilTest.ProcCollectionTester" type="MsTestTestClassElement" TypeName="UtilTest.ProcCollectionTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" /&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:UtilTest.ProcCollectionTester.can_enumerate_processes" ParentId="MsTest:UtilTest.ProcCollectionTester" type="MsTestTestMethodElement" MethodName="can_enumerate_processes" TypeName="UtilTest.ProcCollectionTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" /&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:UtilTest.ProcCollectionTester.can_get_procs_by_name" ParentId="MsTest:UtilTest.ProcCollectionTester" type="MsTestTestMethodElement" MethodName="can_get_procs_by_name" TypeName="UtilTest.ProcCollectionTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9A0F11F0EA394143B2D27B081379D0F8/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9A0F11F0EA394143B2D27B081379D0F8/GroupingIndex/@EntryValue">4</s:Int64>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9A0F11F0EA394143B2D27B081379D0F8/Name/@EntryValue">CanReadSegmentOfXmlFile #2</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9A0F11F0EA394143B2D27B081379D0F8/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="UtilTest.IoUtilitiesTester.CanReadSegmentOfXmlFile" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9BB46C30EE22416B863A29386C9E1D0C/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9BB46C30EE22416B863A29386C9E1D0C/Name/@EntryValue">can_copy_large_file</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=9BB46C30EE22416B863A29386C9E1D0C/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:UtilTest.ServiceFixtureTester" type="MsTestTestClassElement" TypeName="UtilTest.ServiceFixtureTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" /&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:UtilTest.ServiceFixtureTester.can_run_service_in_console" ParentId="MsTest:UtilTest.ServiceFixtureTester" type="MsTestTestMethodElement" MethodName="can_run_service_in_console" TypeName="UtilTest.ServiceFixtureTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
@@ -20,6 +47,22 @@
 	
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=D9E64EBAE5E0409697360FC68F0D6437/Name/@EntryValue">can_read_jumbo_file</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=D9E64EBAE5E0409697360FC68F0D6437/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FFF6B832ED4A4B4C81000E5FF8D311A5/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FFF6B832ED4A4B4C81000E5FF8D311A5/GroupingIndex/@EntryValue">4</s:Int64>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FFF6B832ED4A4B4C81000E5FF8D311A5/Name/@EntryValue">CanReadSegmentOfXmlFile</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FFF6B832ED4A4B4C81000E5FF8D311A5/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="UtilTest.IoUtilitiesTester.CanReadSegmentOfXmlFile" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" Provider="MSTest" /&gt;&lt;e Id="UtilTest.IoUtilitiesTester" Project="CCE5DC1B-0423-46D4-B139-8E0108F6DF79" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	</wpf:ResourceDictionary>
